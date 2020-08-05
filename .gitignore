@@ -1,0 +1,3 @@
+# Project exclude paths
+/chebei-common/chebei-common-base/target/
+/chebei-common/chebei-common-user/target/

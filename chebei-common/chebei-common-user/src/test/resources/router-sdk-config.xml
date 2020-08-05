@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ams-client-config>
+    <!-- 非服务应用，建议不要配置 localServerName 和 localServerAlias -->
+    <performance heartbeatTime="30000" acquireConnWaitTime="1000" registerTime="5000" keepAliveTimeOut="120000"
+                 reconnInterval="3000"
+                 localServerName="" localServerAlias="" callBackTime="100000" enmCompress="ZLIB"/>
+    <parents>
+        <parent parentName="router">
+            <members>
+                <member no="1" address="localhost" port="8088" poolSize="3" safeLevel="NONE"/>
+                <!-- 开发环境 -->
+                <!-- <member no="1" address="172.16.3.243" port="3300" poolSize="3" safeLevel="NONE" /> -->
+                <!-- 生产环境 -->
+                <!-- <member no="1" address="47.99.65.120" port="3300" poolSize="3" safeLevel="NONE" /> -->
+            </members>
+        </parent>
+    </parents>
+</ams-client-config>

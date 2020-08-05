@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC
+        "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration>
+
+    <!-- !!!! Driver Class Path !!!!! -->
+    <!--<classPathEntry location="C:\work\apache-maven-3.2.1\repository\mysql\mysql-connector-java\5.1.28\mysql-connector-java-5.1.28.jar"/>-->
+    <classPathEntry location="D:\.m2\repository\mysql\mysql-connector-java\5.1.28\mysql-connector-java-5.1.28.jar"/>
+
+    <context id="context" targetRuntime="MyBatis3">
+
+        <property name="javaFileEncoding" value="utf-8"/>
+
+        <!-- RowBounds pagination -->
+        <plugin type="org.mybatis.generator.plugins.RowBoundsPlugin"/>
+
+        <!-- 注释 -->
+        <commentGenerator>
+            <property name="suppressAllComments" value="false"/><!-- 是否取消注释 -->
+            <property name="suppressDate" value="true"/><!-- 是否生成注释代时间戳 -->
+        </commentGenerator>
+
+        <!-- !!!! Database Configurations !!!! -->
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://172.16.3.242:3306/ycb?characterEncoding=UTF-8"
+                        userId="root" password="chebei@hz"/>
+
+        <javaTypeResolver>
+            <!-- 是否使用bigDecimal， false可自动转化以下类型（Long, Integer, Short, etc.） -->
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
+
+        <!-- !!!! Model Configurations !!!! -->
+        <javaModelGenerator targetPackage="com.ycbeu.base.model"
+                            targetProject="src/main/java">
+            <!-- 是否在当前路径下新加一层schema,eg：false路径com.qkt.ts.domain， true:com.qkt.ts.domain.[schemaName] -->
+            <property name="enableSubPackages" value="false"/>
+            <!-- 是否针对string类型的字段在set的时候进行trim调用 -->
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+
+        <!-- !!!! Mapper XML Configurations !!!! -->
+        <sqlMapGenerator targetPackage="com.ycbeu.base.mapper"
+                         targetProject="src/main/resources">
+            <property name="enableSubPackages" value="false"/>
+        </sqlMapGenerator>
+
+        <!-- !!!! Mapper Interface Configurations !!!! -->
+        <javaClientGenerator targetPackage="com.ycbeu.base.mapper"
+                             targetProject="src/main/java" type="XMLMAPPER">
+            <property name="enableSubPackages" value="false"/>
+        </javaClientGenerator>
+
+        <!-- !!!! Table Configurations !!!! -->
+        <!-- ClientInfoMapper.java 最后面有两个方法不要覆盖了 -->
+        <table tableName="client_info" domainObjectName="ClientInfo"
+               enableInsert="true" enableSelectByPrimaryKey="true"
+               enableSelectByExample="true" enableCountByExample="true"
+               enableUpdateByPrimaryKey="true" enableDeleteByPrimaryKey="false"
+               enableDeleteByExample="false" enableUpdateByExample="false">
+        </table>
+        <!--<table tableName="func_task" domainObjectName="FuncTask" enableInsert="true" enableSelectByPrimaryKey="true" enableSelectByExample="true" enableCountByExample="true" enableUpdateByPrimaryKey="true" enableDeleteByPrimaryKey="true" enableDeleteByExample="true" enableUpdateByExample="true"/>-->
+
+    </context>
+</generatorConfiguration>

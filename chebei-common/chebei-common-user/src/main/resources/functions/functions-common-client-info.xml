@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="GB2312"?>
+<!DOCTYPE functions PUBLIC "//function_templete/" "http://develop.youchebao.cn/functions_template_v6.dtd?v=3">
+
+<functions moduleAuthor="Shengjie.Wang" moduleName="客户信息" moduleCode="common-chebei-user">
+
+	<function funcMode="METHOD" notCatchMsg="" funcName="会话查询" funcId="100011" open="false">
+		<method methodName="getClientLoginSession" beanName="clientLoginSessionServiceImpl" />
+		<inParams>
+			<inParam paramMode="OPTIONAL" name="user_token" display="token值"/>
+		</inParams>
+		<outParams>
+		</outParams>
+	</function>
+
+
+</functions>
